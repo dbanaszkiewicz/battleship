@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="battleship" default="all">
+  
+  
+  <property file="battleship.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.11" value="${jdk.home.11}/bin"/>
+  <path id="jdk.classpath.11">
+    <fileset dir="${jdk.home.11}">
+      <include name="../jdk-11.0.1!/java.base"/>
+      <include name="../jdk-11.0.1!/java.compiler"/>
+      <include name="../jdk-11.0.1!/java.datatransfer"/>
+      <include name="../jdk-11.0.1!/java.desktop"/>
+      <include name="../jdk-11.0.1!/java.instrument"/>
+      <include name="../jdk-11.0.1!/java.logging"/>
+      <include name="../jdk-11.0.1!/java.management"/>
+      <include name="../jdk-11.0.1!/java.management.rmi"/>
+      <include name="../jdk-11.0.1!/java.naming"/>
+      <include name="../jdk-11.0.1!/java.net.http"/>
+      <include name="../jdk-11.0.1!/java.prefs"/>
+      <include name="../jdk-11.0.1!/java.rmi"/>
+      <include name="../jdk-11.0.1!/java.scripting"/>
+      <include name="../jdk-11.0.1!/java.se"/>
+      <include name="../jdk-11.0.1!/java.security.jgss"/>
+      <include name="../jdk-11.0.1!/java.security.sasl"/>
+      <include name="../jdk-11.0.1!/java.smartcardio"/>
+      <include name="../jdk-11.0.1!/java.sql"/>
+      <include name="../jdk-11.0.1!/java.sql.rowset"/>
+      <include name="../jdk-11.0.1!/java.transaction.xa"/>
+      <include name="../jdk-11.0.1!/java.xml"/>
+      <include name="../jdk-11.0.1!/java.xml.crypto"/>
+      <include name="../jdk-11.0.1!/jdk.accessibility"/>
+      <include name="../jdk-11.0.1!/jdk.aot"/>
+      <include name="../jdk-11.0.1!/jdk.attach"/>
+      <include name="../jdk-11.0.1!/jdk.charsets"/>
+      <include name="../jdk-11.0.1!/jdk.compiler"/>
+      <include name="../jdk-11.0.1!/jdk.crypto.cryptoki"/>
+      <include name="../jdk-11.0.1!/jdk.crypto.ec"/>
+      <include name="../jdk-11.0.1!/jdk.crypto.mscapi"/>
+      <include name="../jdk-11.0.1!/jdk.dynalink"/>
+      <include name="../jdk-11.0.1!/jdk.editpad"/>
+      <include name="../jdk-11.0.1!/jdk.hotspot.agent"/>
+      <include name="../jdk-11.0.1!/jdk.httpserver"/>
+      <include name="../jdk-11.0.1!/jdk.internal.ed"/>
+      <include name="../jdk-11.0.1!/jdk.internal.jvmstat"/>
+      <include name="../jdk-11.0.1!/jdk.internal.le"/>
+      <include name="../jdk-11.0.1!/jdk.internal.opt"/>
+      <include name="../jdk-11.0.1!/jdk.internal.vm.ci"/>
+      <include name="../jdk-11.0.1!/jdk.internal.vm.compiler"/>
+      <include name="../jdk-11.0.1!/jdk.internal.vm.compiler.management"/>
+      <include name="../jdk-11.0.1!/jdk.jartool"/>
+      <include name="../jdk-11.0.1!/jdk.javadoc"/>
+      <include name="../jdk-11.0.1!/jdk.jcmd"/>
+      <include name="../jdk-11.0.1!/jdk.jconsole"/>
+      <include name="../jdk-11.0.1!/jdk.jdeps"/>
+      <include name="../jdk-11.0.1!/jdk.jdi"/>
+      <include name="../jdk-11.0.1!/jdk.jdwp.agent"/>
+      <include name="../jdk-11.0.1!/jdk.jfr"/>
+      <include name="../jdk-11.0.1!/jdk.jlink"/>
+      <include name="../jdk-11.0.1!/jdk.jshell"/>
+      <include name="../jdk-11.0.1!/jdk.jsobject"/>
+      <include name="../jdk-11.0.1!/jdk.jstatd"/>
+      <include name="../jdk-11.0.1!/jdk.localedata"/>
+      <include name="../jdk-11.0.1!/jdk.management"/>
+      <include name="../jdk-11.0.1!/jdk.management.agent"/>
+      <include name="../jdk-11.0.1!/jdk.management.jfr"/>
+      <include name="../jdk-11.0.1!/jdk.naming.dns"/>
+      <include name="../jdk-11.0.1!/jdk.naming.rmi"/>
+      <include name="../jdk-11.0.1!/jdk.net"/>
+      <include name="../jdk-11.0.1!/jdk.pack"/>
+      <include name="../jdk-11.0.1!/jdk.rmic"/>
+      <include name="../jdk-11.0.1!/jdk.scripting.nashorn"/>
+      <include name="../jdk-11.0.1!/jdk.scripting.nashorn.shell"/>
+      <include name="../jdk-11.0.1!/jdk.sctp"/>
+      <include name="../jdk-11.0.1!/jdk.security.auth"/>
+      <include name="../jdk-11.0.1!/jdk.security.jgss"/>
+      <include name="../jdk-11.0.1!/jdk.unsupported"/>
+      <include name="../jdk-11.0.1!/jdk.unsupported.desktop"/>
+      <include name="../jdk-11.0.1!/jdk.xml.dom"/>
+      <include name="../jdk-11.0.1!/jdk.zipfs"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.11}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.11}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.11"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.at.favre.lib:bcrypt:0.6.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/at/favre/lib/bcrypt/0.6.0/bcrypt-0.6.0.jar"/>
+    <pathelement location="${path.variable.maven_repository}/at/favre/lib/bytes/0.8.0/bytes-0.8.0.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module battleship -->
+  
+  <dirname property="module.battleship.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.battleship" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.battleship" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.battleship" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.battleship" value="-encoding UTF-8 -source 8 -target 1.5 ${compiler.args}"/>
+  
+  <property name="battleship.output.dir" value="${module.battleship.basedir}/target/classes"/>
+  <property name="battleship.testoutput.dir" value="${module.battleship.basedir}/target/test-classes"/>
+  
+  <path id="battleship.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="battleship.module.production.classpath">
+    <path refid="${module.jdk.classpath.battleship}"/>
+    <path refid="library.at.favre.lib:bcrypt:0.6.0.classpath"/>
+  </path>
+  
+  <path id="battleship.runtime.production.module.classpath">
+    <pathelement location="${battleship.output.dir}"/>
+    <path refid="library.at.favre.lib:bcrypt:0.6.0.classpath"/>
+  </path>
+  
+  <path id="battleship.module.classpath">
+    <path refid="${module.jdk.classpath.battleship}"/>
+    <pathelement location="${battleship.output.dir}"/>
+    <path refid="library.at.favre.lib:bcrypt:0.6.0.classpath"/>
+  </path>
+  
+  <path id="battleship.runtime.module.classpath">
+    <pathelement location="${battleship.testoutput.dir}"/>
+    <pathelement location="${battleship.output.dir}"/>
+    <path refid="library.at.favre.lib:bcrypt:0.6.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.battleship">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.battleship">
+    <patternset refid="excluded.from.module.battleship"/>
+  </patternset>
+  
+  <path id="battleship.module.sourcepath">
+    <dirset dir="${module.battleship.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="battleship.module.test.sourcepath">
+    <dirset dir="${module.battleship.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.battleship" depends="compile.module.battleship.production,compile.module.battleship.tests" description="Compile module battleship"/>
+  
+  <target name="compile.module.battleship.production" description="Compile module battleship; production classes">
+    <mkdir dir="${battleship.output.dir}"/>
+    <javac destdir="${battleship.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.battleship}/javac">
+      <compilerarg line="${compiler.args.battleship}"/>
+      <bootclasspath refid="battleship.module.bootclasspath"/>
+      <classpath refid="battleship.module.production.classpath"/>
+      <src refid="battleship.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.battleship"/>
+    </javac>
+    
+    <copy todir="${battleship.output.dir}">
+      <fileset dir="${module.battleship.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.battleship.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.battleship.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.battleship.tests" depends="compile.module.battleship.production" description="compile module battleship; test classes" unless="skip.tests">
+    <mkdir dir="${battleship.testoutput.dir}"/>
+    <javac destdir="${battleship.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.battleship}/javac">
+      <compilerarg line="${compiler.args.battleship}"/>
+      <bootclasspath refid="battleship.module.bootclasspath"/>
+      <classpath refid="battleship.module.classpath"/>
+      <src refid="battleship.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.battleship"/>
+    </javac>
+    
+    <copy todir="${battleship.testoutput.dir}">
+      <fileset dir="${module.battleship.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.battleship" description="cleanup module">
+    <delete dir="${battleship.output.dir}"/>
+    <delete dir="${battleship.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.battleship" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.battleship" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.battleship" value="${basedir}/out/artifacts/battleship"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.battleship.jar" value="${artifacts.temp.dir}/battleship.jar"/>
+  </target>
+  
+  <target name="artifact.battleship" depends="init.artifacts, compile.module.battleship" description="Build &#39;battleship&#39; artifact">
+    <property name="artifact.temp.output.battleship" value="${artifacts.temp.dir}/battleship"/>
+    <mkdir dir="${artifact.temp.output.battleship}"/>
+    <ant antfile="" target="null" dir="">
+      <property name="artifact.output.path" value="${artifact.temp.output.battleship}"/>
+    </ant>
+    <jar destfile="${temp.jar.path.battleship.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${battleship.output.dir}"/>
+      <zipfileset src="${path.variable.maven_repository}/at/favre/lib/bcrypt/0.6.0/bcrypt-0.6.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/at/favre/lib/bytes/0.8.0/bytes-0.8.0.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.battleship.jar}" tofile="${artifact.temp.output.battleship}/battleship.jar"/>
+    <ant antfile="" target="null" dir="">
+      <property name="artifact.output.path" value="${artifact.temp.output.battleship}"/>
+    </ant>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.battleship" description="Build all artifacts">
+    <mkdir dir="${artifact.output.battleship}"/>
+    <copy todir="${artifact.output.battleship}">
+      <fileset dir="${artifact.temp.output.battleship}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
