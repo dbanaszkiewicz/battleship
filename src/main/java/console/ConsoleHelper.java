@@ -43,8 +43,8 @@ public class ConsoleHelper {
     }
 
     public static String readPassword(String message) {
-        Console cons = System.console();
-        char[] pass = cons.readPassword(message + ": ");
-        return Arrays.toString(pass);
+        Scanner in = new Scanner(System.in);
+        System.out.print(message + ": ");
+        return in.nextLine();
     }
  }

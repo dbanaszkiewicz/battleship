@@ -136,7 +136,11 @@ public class UserMenu {
             }
 
             boolean isHit = ConsoleHelper.scanBooleanValue("Czy oktręt został trafiony?");
-            boolean isSunk = ConsoleHelper.scanBooleanValue("Czy oktręt został zatopiony?");
+            boolean isSunk = false;
+
+            if (isHit) {
+                isSunk = ConsoleHelper.scanBooleanValue("Czy oktręt został zatopiony?");
+            }
 
             game.getOpponentMap().shot(field, isHit, isSunk);
             GameDataManager.getInstance().addStep(game, user, field, isHit, isSunk);
